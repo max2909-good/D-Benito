@@ -1,0 +1,125 @@
+@import url('../css/common.css');
+
+main {
+    background-color: var(--background-color);
+}
+
+.contenidoped {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.caja {
+    background-color: #d1cccc;
+    padding: 2rem;
+    border-radius: 7px;
+    font-size: 1.85rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.prueba {
+    padding: 1rem;
+}
+
+.boton {
+    display: flex; /* Activar Flexbox */
+    justify-content: center; /* Centrar horizontalmente (si es necesario) */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.boton button {
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 2.5rem;
+    border: none;
+    background-color: #d1cccc;
+    cursor: pointer;
+}
+
+.boton button i {
+    color: #000;
+}
+
+.desplegable {
+    display: none;
+    padding: 2rem;
+    margin-top: 1rem;
+    background-color: #f0ecec;
+    border-radius: 7px;
+    font-size: 1.85rem;
+    text-align: center;
+}
+
+.productos {
+    text-align: left;
+}
+
+.titulosd {
+    font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 1199px) {
+    .caja {
+        font-size: 1.6rem;
+        padding: 1.5rem;
+    }
+
+    .boton button {
+        font-size: 2rem;
+    }
+
+    .desplegable {
+        padding: 1.5rem;
+        font-size: 1.6rem;
+    }
+
+}
+
+/* Dispositivos más pequeños (móviles) */
+@media (max-width: 767px) {
+    .caja {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .boton button {
+        font-size: 1.5rem;
+    }
+
+    .desplegable {
+        padding: 1rem;
+        font-size: 1.4rem;
+    }
+
+    /* Adaptar el diseño de las columnas */
+    .general .col-1, .general .col-10, .general .col-3, .general .col-7, .general .col-2 {
+        padding: 0.5rem;
+    }
+}
+@media (max-width:534){
+    .titulosd{
+        font-size: 1.2rem;
+    }
+}
+/* Para mejorar la usabilidad en dispositivos pequeños */
+@media (max-width: 480px) {
+    .caja {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .boton button {
+        font-size: 1rem;
+    }
+
+    .desplegable {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .prueba {
+        padding: 0.3rem;
+    }
+}
