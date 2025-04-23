@@ -1,0 +1,653 @@
+@import url('../css/common.css');
+
+
+.carousel img {
+    height: 60rem; /* Establece la altura de las imágenes */
+    width: 100%; /* Asegúrate de que las imágenes ocupen el ancho completo */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+.carousel-caption {
+    border-radius: 50px;
+    background-color: rgba(54, 47, 47, 0.8); /* 50% de opacidad */
+
+}
+
+
+.carousel-caption p {
+    color: #fff; /* Color del texto */
+    font-size: 1.5rem; /* Tamaño de la fuente */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    font-weight: 600; /* Grosor de la fuente */
+}
+
+.carousel-caption h5 {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+main {
+    background-color: var(--background-color);
+}
+
+
+/*INICIO BENEFICIOS*/
+.beneficios {
+    padding-top: 2rem;
+}
+
+.item-beneficio {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.tarjeta-beneficio i {
+    font-size: 2.7rem;
+    color: var(--primary-color);
+}
+
+.contenido-beneficio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contenido-beneficio span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark-color);
+}
+
+.contenido-beneficio p {
+    color: #777;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+    .tarjeta-beneficio {
+        padding: 1rem;
+    }
+
+}
+
+/*FIN BENEFICIOS*/
+
+/*INICIO CATEGORÍAS*/
+.top-categorias {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.titulo {
+    margin-bottom: 1rem;
+}
+
+.categorias {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    gap: 2rem;
+}
+
+.alimento {
+    background-image: linear-gradient(#00000080, #00000080), url('https://u-static.fotor.com/images/text-to-image/result/PRO-94dd9808b1434b9988ff4fd6baf93528.jpg');
+    background-size: cover;
+    background-position: above;
+    background-repeat: no-repeat;
+}
+
+.bebida {
+    background-image: linear-gradient(#00000080, #00000080), url('https://u-static.fotor.com/images/text-to-image/result/PRO-d0604803b6274ef89539d0c370ee019b.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lacteo {
+    background-image: linear-gradient(#00000080, #00000080), url('https://u-static.fotor.com/images/text-to-image/result/PRO-627ab0bf858c48abbe828959e8f0404b.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media(max-width: 768px) {
+    .lacteo {
+        margin-top: 1rem;
+    }
+}
+
+.categorias p {
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.categorias p::after {
+    content: '';
+    width: 2.5rem;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.categorias span {
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.categorias span a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.categorias span a:hover {
+    color: var(--primary-color);
+}
+
+/*FIN CATEGORIAS*/
+
+/*OPCIONES*/
+.caja-opciones {
+    margin-top: 2rem;
+}
+
+.option {
+    color: #777;
+    display: flex;
+    background-color: #fff;
+    font-size: 1.4rem;
+    padding: .9rem 2rem;
+    text-transform: capitalize;
+    border-radius: 2rem;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.option:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.option.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Contenedor grid para las tarjetas */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas iguales */
+    gap: 30px;
+    /* Espacio entre tarjetas */
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+.product-card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan la misma altura */
+    position: relative;
+    /* Necesario para la posición absoluta del button-group */
+    transition: transform 0.3s ease;
+    /* Animación suave al pasar el cursor */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    /* Hace que la tarjeta suba un poco al pasar el cursor */
+}
+
+.product-card h3 {
+    margin: 15px 0;
+    min-height: 40px;
+    /* Controla la altura del nombre del producto */
+}
+
+.product-card .star-container {
+    display: flex;
+    /* Usamos flexbox para alinear las estrellas horizontalmente */
+    justify-content: center;
+    /* Centramos las estrellas */
+    gap: 5px;
+    /* Espacio entre estrellas */
+    padding-top: 2rem;
+    /* Espacio entre estrellas y el siguiente elemento */
+}
+
+.product-card .star-container i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.product-card .price-container {
+    display: flex;
+    /* Usamos flexbox para alinear los precios en la misma línea */
+    justify-content: flex-end;
+    /* Alinea los precios a la derecha */
+    gap: 5px;
+    /* Espacio entre el precio descuento y el precio original */
+    color: black;
+    font-weight: 500;
+}
+
+.product-card span {
+    font-size: 15px;
+}
+
+.product-card .price-original {
+    text-decoration: line-through;
+    color: grey;
+    font-weight: normal;
+}
+
+.product-card .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo del icono del carrito dentro del círculo */
+.cart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    /* Ancho del círculo */
+    height: 40px;
+    /* Alto del círculo */
+    border: 2px solid var(--primary-color);
+    /* Borde negro */
+    border-radius: 50%;
+    /* Hace que el contenedor sea circular */
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.cart-icon i {
+    font-size: 1.5rem;
+    /* Tamaño del ícono del carrito */
+}
+
+.cart-icon:hover {
+    background-color: var(--primary-color);
+}
+
+.cart-icon:hover i {
+    color: #fff;
+}
+
+/* Estilo del grupo de botones que aparece al hover */
+.button-group {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    /* Ajusta la distancia desde el lado derecho */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.button-group span {
+    color: var(--primary-color);
+    padding: .7rem;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-group span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.1);
+    /* Agranda un poco los íconos al pasar el cursor */
+}
+
+/* Mostrar el button-group al hacer hover en la tarjeta */
+.product-card:hover .button-group {
+    opacity: 1;
+}
+
+/* Estilo del descuento */
+.discount {
+    position: absolute;
+    top: 10px;
+    /* Espacio desde la parte superior */
+    left: 10px;
+    /* Espacio desde la izquierda */
+    background-color: var(--primary-color);
+    /* Color de fondo */
+    color: white;
+    /* Color del texto */
+    padding: 4px 1.5rem;
+    /* Espaciado interno */
+    border-radius: 2rem;
+    /* Esquinas redondeadas */
+    z-index: 10;
+    /* Asegura que esté por encima de otros elementos */
+    font-size: 0.7em;
+    /* Tamaño de fuente responsivo */
+    opacity: 0;
+}
+
+.discount span {
+    font-size: 1.3rem;
+}
+
+/* Mostrar el button-group al hacer hover en la tarjeta */
+.product-card:hover .discount {
+    opacity: 1;
+}
+
+/*TAMAÑO DEL DESCUENTO*/
+@media (max-width: 384px) {
+    .discount {
+        font-size: 0.9em;
+        /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 4px 0.5rem;
+        /* Espaciado interno más pequeño */
+    }
+}
+
+/* Cambiar la disposición del precio en pantallas pequeñas */
+@media (max-width: 472px) {
+    .product-card .price-container {
+        flex-direction: column;
+        /* Apilar los precios verticalmente */
+        align-items: flex-end;
+        /* Alinear los precios a la derecha */
+    }
+}
+
+@media (max-width: 330px) {
+    .price-container span {
+        font-size: 13px;
+    }
+}
+
+/*FIN LISTA DE PRODUCTOS*/
+
+.container-galeria{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.galeria {
+    padding: 1rem;
+}
+
+.galeria img {
+    border-radius: 1rem;
+}
+
+@media(max-width: 1113px) {
+    .caja-opciones {
+        margin-top: 1rem;
+    }
+
+    .option {
+        font-size: 1rem;
+        padding: .7rem 0rem;
+    }
+}
+@media(max-width: 768px) {
+    .galeria {
+        padding: 0.5rem;
+    }
+}
+@media(max-width: 323px){
+    .caja-opciones {
+        margin-top: 1rem;
+    }
+
+    .option {
+        font-size: 0.7rem;
+        padding: .7rem 0rem;
+    }
+}
+/*INICIO DE BLOGS*/
+.blogs{
+    margin-top: 3rem;
+}
+.card {
+    border: none;
+    background-color: var(--background-color);
+
+}
+
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.7rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.card-date {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.card-text {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #777;
+    text-align: justify;
+}
+
+.btn-read-more {
+    padding: 1rem 3rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-read-more a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-read-more i {
+    margin-left: 20rem;
+}
+
+.btn-read-more:hover {
+    background-color: var(--dark-color);
+}
+
+.card-img-top {
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    max-height: 270px;
+    width: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+/* Espaciado adicional en pantallas pequeñas */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 20px;
+        /* Espaciado inferior entre las cartas en móviles */
+    }
+
+    .card {
+        margin-bottom: 20px;
+        /* Espaciado superior e inferior adicional */
+    }
+}
+/* FIN BLOGS */
+/* Estilos base del modal */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1050;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+}
+
+.modal-image {
+    max-width: 300px; /* Define un ancho máximo para la imagen en el modal */
+}
+
+.modal-info {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-info h3{
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.modal-price {
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #333;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.modal-content .star-container{
+    display: flex;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.price-original {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-info {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .modal-image img {
+        max-width: 120px;
+    }
+}
+@media (max-width: 493px){
+    .modal-info h3{
+        font-size: 2rem;
+    }
+    .modal-price {
+
+        font-size: 1.8rem;
+
+    }
+    .modal-content .star-container{
+        display: flex;
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}

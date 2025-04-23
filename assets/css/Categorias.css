@@ -1,0 +1,399 @@
+@import url('../css/common.css');
+
+/*Banner*/
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 51rem;
+}
+
+.content-banner {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 25rem 0;
+}
+
+.content-banner h1 {
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+@media (max-width: 933px) {
+    
+    .content-banner {
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 25rem 0;
+    }
+
+}
+
+@media(max-width:529px) {
+    .banner{
+        height: 30rem;
+    }
+    .content-banner {
+        max-width: 30rem;
+        margin: 0 auto;
+        padding: 12.5rem 0;
+    }
+    
+    .content-banner h1 {
+        font-size: 2.5rem;
+    }
+
+}
+/*Fin Banner*/
+.main-content{
+    background-color: var(--background-color);
+}
+.productos{
+    padding: 2rem 1rem;
+}
+/*INICIO LISTA DE PRODUCTOS*/
+/* Contenedor grid para las tarjetas */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas iguales */
+    gap: 30px;
+    /* Espacio entre tarjetas */
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+.product-card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan la misma altura */
+    position: relative;
+    /* Necesario para la posición absoluta del button-group */
+    transition: transform 0.3s ease;
+    /* Animación suave al pasar el cursor */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    /* Hace que la tarjeta suba un poco al pasar el cursor */
+}
+
+.product-card h3 {
+    margin: 15px 0;
+    min-height: 40px;
+    /* Controla la altura del nombre del producto */
+}
+
+.product-card .star-container {
+    display: flex;
+    /* Usamos flexbox para alinear las estrellas horizontalmente */
+    justify-content: center;
+    /* Centramos las estrellas */
+    gap: 5px;
+    /* Espacio entre estrellas */
+    padding-top: 2rem;
+    /* Espacio entre estrellas y el siguiente elemento */
+}
+
+.product-card .star-container i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.product-card .price-container {
+    display: flex;
+    /* Usamos flexbox para alinear los precios en la misma línea */
+    justify-content: flex-end;
+    /* Alinea los precios a la derecha */
+    gap: 5px;
+    /* Espacio entre el precio descuento y el precio original */
+    color: black;
+    font-weight: 500;
+}
+
+.product-card span {
+    font-size: 15px;
+}
+
+.product-card .price-original {
+    text-decoration: line-through;
+    color: grey;
+    font-weight: normal;
+}
+
+.product-card .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo del icono del carrito dentro del círculo */
+.cart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    /* Ancho del círculo */
+    height: 40px;
+    /* Alto del círculo */
+    border: 2px solid var(--primary-color);
+    /* Borde negro */
+    border-radius: 50%;
+    /* Hace que el contenedor sea circular */
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+.cart-icon i {
+    font-size: 1.5rem;
+    /* Tamaño del ícono del carrito */
+}
+
+.cart-icon:hover {
+    background-color: var(--primary-color);
+}
+
+.cart-icon:hover i {
+    color: #fff;
+}
+
+/* Estilo del grupo de botones que aparece al hover */
+.button-group {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    /* Ajusta la distancia desde el lado derecho */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.button-group span {
+    color: var(--primary-color);
+    padding: .7rem;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-group span:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.1);
+    /* Agranda un poco los íconos al pasar el cursor */
+}
+
+/* Mostrar el button-group al hacer hover en la tarjeta */
+.product-card:hover .button-group {
+    opacity: 1;
+}
+
+/* Estilo del descuento */
+.discount {
+    position: absolute;
+    top: 10px;
+    /* Espacio desde la parte superior */
+    left: 10px;
+    /* Espacio desde la izquierda */
+    background-color: var(--primary-color);
+    /* Color de fondo */
+    color: white;
+    /* Color del texto */
+    padding: 4px 1.5rem;
+    /* Espaciado interno */
+    border-radius: 2rem;
+    /* Esquinas redondeadas */
+    z-index: 10;
+    /* Asegura que esté por encima de otros elementos */
+    font-size: 0.7em;
+    /* Tamaño de fuente responsivo */
+    opacity: 0;
+}
+
+.discount span {
+    font-size: 1.3rem;
+}
+
+/* Mostrar el button-group al hacer hover en la tarjeta */
+.product-card:hover .discount {
+    opacity: 1;
+}
+
+/*TAMAÑO DEL DESCUENTO*/
+@media (max-width: 384px) {
+    .discount {
+        font-size: 0.9em;
+        /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 4px 0.5rem;
+        /* Espaciado interno más pequeño */
+    }
+}
+
+/* Cambiar la disposición del precio en pantallas pequeñas */
+@media (max-width: 472px) {
+    .product-card .price-container {
+        flex-direction: column;
+        /* Apilar los precios verticalmente */
+        align-items: flex-end;
+        /* Alinear los precios a la derecha */
+    }
+}
+
+@media (max-width: 330px) {
+    .price-container span {
+        font-size: 13px;
+    }
+}
+
+/*FIN LISTA DE PRODUCTOS*/
+/* Estilos base del modal */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+}
+
+.modal-image {
+    max-width: 300px; /* Define un ancho máximo para la imagen en el modal */
+}
+
+.modal-info {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-info h3{
+    font-size: 4.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.modal-price {
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #333;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.modal-content .star-container{
+    display: flex;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.price-original {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-info {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .modal-image img {
+        max-width: 120px;
+    }
+}
+@media (max-width: 493px){
+    .modal-info h3{
+        font-size: 2rem;
+    }
+    .modal-price {
+
+        font-size: 1.8rem;
+
+    }
+    .modal-content .star-container{
+        display: flex;
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    
+
+    
+    
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
