@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Y Regristo - D'Benito</title>
+    <link rel="stylesheet" href="/assets/css/login.css">
+</head>
+<body> 
+
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+            <!-- Formulario de login y registro-->
+                <div class="contenedor__login-register">
+                    <!--Login-->
+                    <form id="loginForm" action="/login/login.php" class="formulario__login">
+                        <input type="hidden" name="accion" value="login">
+                        <h2>Iniciar Sesión</h2>
+                        <input type="text" name="usuario" placeholder="Correo Electronico">
+                        <input type="password" name="contrasena" placeholder="Contraseña">
+                        <div id="loginMessage" class="message"></div>
+                        <button type="submit"> Ingresar</button>
+                    </form>
+                    <!--Registro-->
+                    <form id="registerForm" action="/login/registro.php" method="POST" class="formulario__register">
+                        <h2>Registrarse</h2>
+                        <input type="text" name="nombre_completo" placeholder="Nombre Completo">
+                        <input type="text" name="correo_electronico" placeholder="Correo Electronico">
+                        <input type="text" name="telefono" placeholder="Teléfono">
+                        <input type="text" name="direccion" placeholder="Direccion">
+                        <input type="text" name="usuario" placeholder="Usuario">
+                        <input type="password" name="contrasena" placeholder="Contraseña">
+                        <div id="registerMessage" class="message"></div>
+                        <button type="submit">Regístrarse</button>
+                    </form>
+                </div>
+        </div>
+    </main>
+    <script src='../assets/js/login.js'></script>
+</body>
+</html>
