@@ -224,7 +224,8 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,1,'Tomás Eduardo Olaya Purizaca','olayapurizacatomaseduardo@gmail.com',936251840,'Los Capulies Ñ14 Urb. Miraflores','tomasola','$2y$10$ntQQUx6h1D7dFaxtmgse5O5y/3d5c063J0s5EefPBONc3xjMtjF7.'),(2,3,'Noe Eche Maza','panchito21@gmail.com',957866321,'Av. Grau 205','panchito23','$2y$10$d4zpCCzYA7CMDutTVCNd.eDAgeJlQ1gIvGar.BndiHhcaMAgEN5xO'),(3,2,'Pedro','anlucia2007@gmail.com',957866321,'Av. Grau 205','pedro','$2y$10$GkYFb.9dnfsvplF43yRVEu4BKIsRn44LtXHcgdOh5bsJeIvbd0yjW'),(4,2,'Fernanda','fernanda@gmail.com',953628741,'Los canarios','fernanda','$2y$10$H.nqKY3.DRVtnXJ2ZIHjIOlGLLAR8Art.2I5KlJwhGpHLGhGPGoBy');
+INSERT INTO `usuario` VALUES 
+(1,1,'Tomás Eduardo Olaya Purizaca','olayapurizacatomaseduardo@gmail.com',936251840,'Los Capulies Ñ14 Urb. Miraflores','tomasola','$2y$10$ntQQUx6h1D7dFaxtmgse5O5y/3d5c063J0s5EefPBONc3xjMtjF7.'),(2,3,'Noe Eche Maza','panchito21@gmail.com',957866321,'Av. Grau 205','panchito23','$2y$10$d4zpCCzYA7CMDutTVC Nd.eDAgeJlQ1gIvGar.BndiHhcaMAgEN5xO'),(3,2,'Pedro','anlucia2007@gmail.com',957866321,'Av. Grau 205','pedro','$2y$10$GkYFb.9dnfsvplF43yRVEu4BKIsRn44LtXHcgdOh5bsJeIvbd0yjW'),(4,2,'Fernanda','fernanda@gmail.com',953628741,'Los canarios','fernanda','$2y$10$H.nqKY3.DRVtnXJ2ZIHjIOlGLLAR8Art.2I5KlJwhGpHLGhGPGoBy');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
