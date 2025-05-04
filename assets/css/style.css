@@ -2,34 +2,34 @@
 
 
 .carousel img {
-    height: 60rem; /* Establece la altura de las imágenes */
-    width: 100%; /* Asegúrate de que las imágenes ocupen el ancho completo */
-    object-fit: cover; /* Mantiene la proporción de la imagen */
+    height: auto;
+    max-height: 60rem;
+    object-fit: cover; /* Altura máxima */
 }
 
 .carousel-caption {
-    border-radius: 50px;
-    background-color: rgba(54, 47, 47, 0.8); /* 50% de opacidad */
-
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+    padding: 1rem 2rem;
 }
 
 
 .carousel-caption p {
-    color: #fff; /* Color del texto */
-    font-size: 1.5rem; /* Tamaño de la fuente */
-    margin-bottom: 1rem; /* Espaciado inferior */
-    font-weight: 600; /* Grosor de la fuente */
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .carousel-caption h5 {
     color: #fff;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 main {
-    background-color: var(--background-color);
+    background-color: #f8f9fa;
 }
 
 
@@ -41,17 +41,22 @@ main {
 .item-beneficio {
     background-color: #fff;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     border-radius: 1rem;
     padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
-
+.item-beneficio:hover {
+    transform: translateY(-5px);
+}
 .tarjeta-beneficio i {
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
 }
 
@@ -70,6 +75,7 @@ main {
 .contenido-beneficio p {
     color: #777;
     font-weight: 500;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -86,6 +92,7 @@ main {
 .top-categorias {
     margin-top: 3rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .titulo {
@@ -93,15 +100,63 @@ main {
 }
 
 .categorias {
-    height: 20rem;
+    height: auto;
+    min-height: 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 2rem;
-    gap: 2rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-
+.categorias:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5); /* Efecto de oscurecimiento */
+}
+.categorias::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    opacity: 0;
+}
+.categorias:hover::before {
+    opacity: 1;
+}
+.categorias p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    z-index: 2;
+    position: relative;
+}
+.categorias span a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.categorias {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
 .alimento {
     background-image: linear-gradient(#00000080, #00000080), url('https://u-static.fotor.com/images/text-to-image/result/PRO-94dd9808b1434b9988ff4fd6baf93528.jpg');
     background-size: cover;
@@ -128,34 +183,65 @@ main {
         margin-top: 1rem;
     }
 }
-
-.categorias p {
-    font-size: 2.5rem;
-    color: #fff;
-    text-transform: capitalize;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Estilo para el modal de beneficios */
+#benefit-modal .modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    padding: 20px;
+    border: 3px solid var(--primary-color);
+    max-width: 600px; /* Ancho máximo del modal */
+    width: 90%; /* Asegura que el modal sea responsivo */
+    max-height: 90vh; /* Limita la altura máxima al 90% de la ventana */
+    overflow-y: auto; /* Agrega un scroll si el contenido excede la altura */
     position: relative;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
-.categorias p::after {
-    content: '';
-    width: 2.5rem;
-    height: 2px;
-    background-color: #fff;
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translate(-50%, 50%);
+#benefit-modal .modal-body {
+    text-align: center;
+    padding: 20px;
 }
 
-.categorias span {
-    font-size: 1.8rem;
-    color: #fff;
-    cursor: pointer;
+#benefit-modal .modal-body i {
+    color: var(--primary-color);
+    font-size: 5rem;
+    margin-bottom: 20px;
 }
 
-.categorias span a {
-    text-decoration: none;
-    color: #fff;
+#benefit-modal .modal-body h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#benefit-modal .modal-body p {
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Animación de entrada del modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .categorias span a:hover {
@@ -291,13 +377,9 @@ main {
     justify-content: center;
     align-items: center;
     width: 40px;
-    /* Ancho del círculo */
     height: 40px;
-    /* Alto del círculo */
     border: 2px solid var(--primary-color);
-    /* Borde negro */
     border-radius: 50%;
-    /* Hace que el contenedor sea circular */
     color: var(--primary-color);
     cursor: pointer;
     transition: all .4s ease;
@@ -305,7 +387,6 @@ main {
 
 .cart-icon i {
     font-size: 1.5rem;
-    /* Tamaño del ícono del carrito */
 }
 
 .cart-icon:hover {
@@ -447,90 +528,72 @@ main {
         padding: .7rem 0rem;
     }
 }
-/*INICIO DE BLOGS*/
-.blogs{
-    margin-top: 3rem;
-}
-.card {
-    border: none;
-    background-color: var(--background-color);
-
-}
-
-.card-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.7rem;
-    color: var(--dark-color);
-    font-weight: 500;
-}
-
-.card-date {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-}
-
-.card-text {
-    margin-top: 1rem;
-    font-size: 1.4rem;
-    color: #777;
-    text-align: justify;
-}
-
-.btn-read-more {
-    padding: 1rem 3rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    border-radius: 2rem;
-
-    display: inline-block;
-    cursor: pointer;
-}
-
-.btn-read-more a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.btn-read-more i {
-    margin-left: 20rem;
-}
-
-.btn-read-more:hover {
-    background-color: var(--dark-color);
-}
-
-.card-img-top {
-    border-radius: 2rem;
+/* Estilo para el modal de blogs */
+#blog-modal .modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    padding: 20px;
+    border: 3px solid var(--primary-color);
+    max-width: 600px; /* Ancho máximo del modal */
+    width: 90%; /* Asegura que el modal sea responsivo */
+    max-height: 90vh; /* Limita la altura máxima al 90% de la ventana */
+    overflow-y: auto; /* Agrega un scroll si el contenido excede la altura */
     position: relative;
-    overflow: hidden;
-    max-height: 270px;
-    width: 100%;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
+#blog-modal .modal-body {
+    text-align: center;
+    padding: 20px;
 }
 
-.mt-auto {
-    margin-top: auto;
+#blog-modal .modal-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 
-/* Espaciado adicional en pantallas pequeñas */
+#blog-modal .modal-body h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#blog-modal .modal-body p {
+    font-size: 1.3rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Animación de entrada del modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
-    .col-md-4 {
-        margin-bottom: 20px;
-        /* Espaciado inferior entre las cartas en móviles */
+    #blog-modal .modal-body img {
+        margin-bottom: 15px;
     }
 
-    .card {
-        margin-bottom: 20px;
-        /* Espaciado superior e inferior adicional */
+    #blog-modal .modal-body h4 {
+        font-size: 1.6rem;
+    }
+
+    #blog-modal .modal-body p {
+        font-size: 1.2rem;
     }
 }
-/* FIN BLOGS */
 /* Estilos base del modal */
 .product-modal {
     position: fixed;
