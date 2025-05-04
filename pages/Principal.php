@@ -55,8 +55,7 @@
   </section>
 
   <main class="contenido">
-    <!--BENEFICIOS-->
-    <section class="container-fluid beneficios">
+  <section class="container-fluid beneficios">
       <div class="row">
         <!--1 de 4-->
         <div class="col-6 col-md-3 tarjeta-beneficio">
@@ -99,10 +98,52 @@
           </div>
         </div>
       </div>
+       <!-- Modal para mostrar detalles del beneficio -->
+<div id="benefit-modal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <i id="benefit-icon" class="fa-solid fa-truck-fast fa-3x mb-3"></i>
+          <h4 id="benefit-title">Envío gratuito</h4>
+          <p id="benefit-description">En pedido superior a S/35</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
 
     <!--MEJORES CATEGORIAS-->
     <div class="container-fluid top-categorias">
+      <div class="row titulo">
+        <div class="col-md-12">
+          <h1 class="heading-1">Mejores Categorías</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <div class="categorias alimento">
+            <p>Alimentos</p>
+            <span><a href="">Ver más</a></span>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="categorias bebida">
+            <p>Bebidas</p>
+            <span><a href="">Ver Más</a></span>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="categorias lacteo">
+            <p>Lácteos</p>
+            <span><a href="">Ver Más</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!--MEJORES CATEGORIAS-->
+ <div class="container-fluid top-categorias">
       <div class="row titulo">
         <div class="col-md-12">
           <h1 class="heading-1">Mejores Categorías</h1>
@@ -246,6 +287,21 @@
         </div>
       </div>
     </div>
+    <!-- Modal para mostrar detalles del blog -->
+<div id="blog-modal" class="modal fade" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="text-center">
+          <img id="blog-image" src="" alt="Imagen del Blog" class="img-fluid mb-3" style="border-radius: 15px;">
+          <h4 id="blog-title" class="mb-3 text-primary">Título del Blog</h4>
+          <p id="blog-date" class="text-muted mb-3">Fecha del Blog</p>
+          <p id="blog-description" class="text-justify">Descripción del Blog</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   </main>
 <!-- Contenedor del modal -->
 <div id="product-modal" class="product-modal hidden">
@@ -261,8 +317,11 @@
         </div>
     </div>
 </div>
-  <?php include '../includes/footer.html'; ?>
+  
+  <script src="/assets/js/benefits-modal.js"></script>
+  <script src="/assets/js/blog-modal.js"></script>
   <script src='../assets/js/top-products.js'></script>
+  <?php include '../includes/footer.html'; ?>
 </body>
 
 </html>
