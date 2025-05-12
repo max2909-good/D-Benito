@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (!preg_match('/^[9][0-9]{8}$/', $telefonousuario)) {
         $response['success'] = false;
-        $response['message'] = "El número de teléfono debe comenzar con 9 y tener 9 dígitos.";
+        $response['message'] = "El número de teléfono debe tener 9 dígitos.";
         header('Content-Type: application/json');
         echo json_encode($response);
         exit();
