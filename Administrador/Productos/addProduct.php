@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validar nombre
     if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/u", $nombreproducto)) {
-        echo  "⚠️ El nombre del producto solo debe contener letras y espacios.";
+        echo  "⚠️ El nombre del producto solo debe contener letras.";
     } else {
         $stmt = $conn->prepare("INSERT INTO producto (idcategoria, idproveedor, nombreproducto, enlace, preciooriginal, porcentajedescuento, preciodescuento, calificacion, cantidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
