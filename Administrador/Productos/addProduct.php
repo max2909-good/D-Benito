@@ -3,61 +3,59 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verificar si el usuario está logeado y si tiene el rol adecuado
 if (!isset($_SESSION['idusuario']) || ($_SESSION['idrol'] != 1 && $_SESSION['idrol'] != 3)) {
-    // Redirigir al login o a una página de acceso no autorizado
     header("Location: ../../pages/login.html");
     exit();
 }
-// tu_script_php.php
+
 require '../../includes/conexion.php';
 
-// Verificar si el formulario fue enviado
+$mensajeError = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener y sanitizar los datos del formulario
-    $idcategoria = $_POST['idcategoria'];
-    $idproveedor = $_POST['idproveedor'];
-    $nombreproducto = $_POST['nombreproducto'];
-    $enlace = $_POST['enlace'];
-    $preciooriginal = $_POST['preciooriginal'];
-    $porcentajedescuento = isset($_POST['porcentajedescuento']) ? $_POST['porcentajedescuento'] : NULL;
-    $preciodescuento = isset($_POST['preciodescuento']) ? $_POST['preciodescuento'] : NULL;
-    $calificacion = $_POST['calificacion'];
-    $cantidad = $_POST['cantidad'];
+    $idcategoria = filter_input(INPUT_POST, 'idcategoria', FILTER_VALIDATE_INT);
+    $idproveedor = filter_input(INPUT_POST, 'idproveedor', FILTER_VALIDATE_INT);
+    $nombreproducto = trim($_POST['nombreproducto']);
+    $enlace = filter_var(trim($_POST['enlace']), FILTER_SANITIZE_URL);
+    $preciooriginal = filter_input(INPUT_POST, 'preciooriginal', FILTER_VALIDATE_FLOAT);
+    $porcentajedescuento = isset($_POST['porcentajedescuento']) ? filter_input(INPUT_POST, 'porcentajedescuento', FILTER_VALIDATE_FLOAT) : NULL;
+    $preciodescuento = isset($_POST['preciodescuento']) ? filter_input(INPUT_POST, 'preciodescuento', FILTER_VALIDATE_FLOAT) : NULL;
+    $calificacion = filter_input(INPUT_POST, 'calificacion', FILTER_VALIDATE_INT);
+    $cantidad = filter_input(INPUT_POST, 'cantidad', FILTER_VALIDATE_INT);
 
-    // Preparar la consulta
-    $stmt = $conn->prepare("INSERT INTO producto (idcategoria, idproveedor, nombreproducto, enlace, preciooriginal, porcentajedescuento, preciodescuento, calificacion, cantidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-    if ($stmt) {
-        // Bind de parámetros: 'i' para enteros, 's' para cadenas, 'd' para decimales
-        $stmt->bind_param(
-            "iissdddii",
-            $idcategoria,
-            $idproveedor,
-            $nombreproducto,
-            $enlace,
-            $preciooriginal,
-            $porcentajedescuento,
-            $preciodescuento,
-            $calificacion,
-            $cantidad
-        );
-
-        // Ejecutar la consulta
-        if ($stmt->execute()) {
-            echo "Producto agregado exitosamente";
-            // Opcional: Redirigir o limpiar el formulario
-        } else {
-            echo "Error al agregar el producto: " . $stmt->error;
-        }
-
-        // Cerrar el statement
-        $stmt->close();
+    // Validar nombre
+    if (!preg_match("/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/u", $nombreproducto)) {
+        echo  "⚠️ El nombre del producto solo debe contener letras y espacios.";
     } else {
-        echo "Error en la preparación de la consulta: " . $conn->error;
+        $stmt = $conn->prepare("INSERT INTO producto (idcategoria, idproveedor, nombreproducto, enlace, preciooriginal, porcentajedescuento, preciodescuento, calificacion, cantidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        if ($stmt) {
+            $stmt->bind_param(
+                "iissdddii",
+                $idcategoria,
+                $idproveedor,
+                $nombreproducto,
+                $enlace,
+                $preciooriginal,
+                $porcentajedescuento,
+                $preciodescuento,
+                $calificacion,
+                $cantidad
+            );
+
+            if ($stmt->execute()) {
+                echo  "✅ Producto agregado exitosamente.";
+            } else {
+                echo  "❌ Error al agregar el producto: " . $stmt->error;
+            }
+
+            $stmt->close();
+        } else {
+            echo "❌ Error en la preparación de la consulta: " . $conn->error;
+        }
     }
 
-    // Cerrar la conexión
     $conn->close();
 }
 ?>
+
