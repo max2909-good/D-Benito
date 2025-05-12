@@ -176,7 +176,7 @@
     /* Espacio desde la izquierda */
     background-color: var(--primary-color);
     /* Color de fondo */
-    color: white;
+    color: hwb(0 100% 0%);
     /* Color del texto */
     padding: 4px 1.5rem;
     /* Espaciado interno */
@@ -338,7 +338,7 @@
     top: 20px;
     right: 20px;
     background-color: var(--primary-color);
-    color: white;
+    color: rgba(255, 255, 255, 0.963);
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
