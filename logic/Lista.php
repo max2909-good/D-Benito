@@ -62,7 +62,8 @@ if ($result_categoria->num_rows > 0) {
         }
         echo '</div></div></main>';
     } else {
-        echo "No hay productos en la categoría '$categoria'.";
+        echo "<h3 class='text-center mt-4'>No hay productos en la categoría '<strong>" . htmlspecialchars($categoria) . "</strong>'.</h3>";
+
     }
 } else {
     echo "Categoría '$categoria' no encontrada.";
