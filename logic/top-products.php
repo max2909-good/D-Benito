@@ -68,7 +68,7 @@ if ($result_productos->num_rows > 0) {
     }
    
 } else {
-    echo '<p>No hay productos disponibles</p>';
+    echo '<p>Producto agotado</p>';
 }
 
 $conn->close();
