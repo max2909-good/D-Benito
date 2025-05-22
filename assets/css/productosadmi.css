@@ -134,3 +134,28 @@
     background-color: #a38260;
     border-color: #a38260;
 }
+.border-personalizar{
+     border: 2px solid #a38260
+}
+ .bg-personalizado {
+        background-color: #a38260 ;
+        color: white;
+    }
+
+    .text-personalizado {
+        color: #a38260 !important;
+    }
+
+    .table-personalizada thead {
+        background-color: #a38260 !important;
+        color: white;
+    }
+
+    .table-personalizada tbody tr:hover {
+        background-color: #f0e6dd;
+    }
+
+    .fw-bold-green {
+        color: #28a745;
+        font-weight: bold;
+    }
