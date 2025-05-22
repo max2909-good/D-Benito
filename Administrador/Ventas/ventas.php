@@ -109,33 +109,60 @@ $conn->close();
         <?php if (empty($productos)): ?>
             <p class="text-center">No hay datos disponibles para el rango seleccionado.</p>
         <?php else: ?>
-            <div class="mb-4">
-                <h2 class="text-primary">Resumen General</h2>
-                <p><strong>Total de Ingresos:</strong> S/ <?= number_format($totalIngreso, 2) ?></p>
-                <p><strong>Total de Productos Vendidos:</strong> <?= $totalProductos ?></p>
+           <div class="row mb-4">
+    <h2 class="mb-3 text-center text-personalizado">Resumen General</h2>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm border-personalizar">
+            <div class="card-body text-center">
+                <h5 class="card-title text-secondary">Total de Ingresos</h5>
+                <p class="card-text display-6 text-success fw-bold">S/ <?= number_format($totalIngreso, 2) ?></p>
             </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm border-personalizar">
+            <div class="card-body text-center">
+                <h5 class="card-title text-secondary">Total de Productos Vendidos</h5>
+                <p class="card-text display-6 text-warning fw-bold"><?= $totalProductos ?></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
             <!-- Tabla de Productos Consolidados -->
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <thead class="table-dark">
+           <div class="card shadow-sm border-personalizar mb-5">
+    <div class="card-header bg-personalizado d-flex align-items-center">
+        <i class="fas fa-box me-2"></i>
+        <h5 class="mb-0 text-center">Productos Más Vendidos</h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover table-personalizada mb-0">
+                <thead class="text-center">
+                    <tr>
+                         <th>Producto</th>
+                        <th>Cantidad Total Vendida</th>
+                        <th>Total Recaudado (S/)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <?php foreach ($productos as $producto): ?>
                         <tr>
-                            <th>Producto</th>
-                            <th>Cantidad Total Vendida</th>
-                            <th>Total Recaudado (S/)</th>
+                            <td><?= $producto['nombreproducto'] ?></td>
+                            <td><?= $producto['cantidad_total_vendida'] ?></td>
+                            <td class="fw-bold-green">S/ <?= number_format($producto['total_recaudado'], 2) ?></td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($productos as $producto): ?>
-                            <tr>
-                                <td><?= $producto['nombreproducto'] ?></td>
-                                <td><?= $producto['cantidad_total_vendida'] ?></td>
-                                <td>S/ <?= number_format($producto['total_recaudado'], 2) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
         <?php endif; ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
