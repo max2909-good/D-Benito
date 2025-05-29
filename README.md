@@ -1,17 +1,20 @@
-## 👤 Colaborador: JhordyPG
+## 🗓️ Diagrama de Gantt - Colaboraciones de JhordyPG
 
-### 🧠 Aportes realizados al proyecto
+```mermaid
+gantt
+    title Aportes de JhordyPG al proyecto D-Benito
+    dateFormat  YYYY-MM-DD
+    section Registro de usuarios
+    Agrega funciones para login y registro     :2025-04-24, 1d
+    Métodos de registro de usuario             :2025-04-24, 1d
 
-| Actividad                                       | Fecha de Inicio | Fecha de Fin | Estado     |
-|------------------------------------------------|------------------|---------------|------------|
-| Métodos de registro y login de usuario         | 24/04/2025       | 24/04/2025    | ✅ Completado |
-| Base de datos del proyecto                     | 25/04/2025       | 25/04/2025    | ✅ Completado |
-| Actualización de archivo `conexion.php`        | 22/05/2025       | 22/05/2025    | ✅ Completado |
-| Implementación de estilos modernos             | 22/05/2025       | 22/05/2025    | ✅ Completado |
-| Actualización de módulo de ventas              | 22/05/2025       | 22/05/2025    | ✅ Completado |
-| Corrección en `deleteProduct.php`              | 12/05/2025       | 12/05/2025    | ✅ Completado |
+    section Base de datos
+    Configura base de datos del proyecto       :2025-04-25, 1d
 
----
+    section Versión 2 - Estilos y mejoras
+    Ventas actualizado                         :2025-05-22, 1d
+    Estilos modernos                           :2025-05-22, 1d
+    Update conexion.php                        :2025-05-22, 1d
+```
 
-🔗 Puedes verificar mis commits en el historial del repositorio buscando por el usuario `JhordyPG`.
 
