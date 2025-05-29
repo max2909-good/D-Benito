@@ -106,16 +106,16 @@ if ($result->num_rows > 0) {
                 echo "
                 <div class='row general'>
                     <div class='col-1 col-md-1 prueba'></div>
-                    <div class='col-10 col-md-10 prueba'>
+                    <div class='col-10 col-md-10  prueba'>
                         <div class='caja'>
                             <div class='row'>
-                                <div class='col-1 col-md-1'>$pedidoAnterior</div>
-                                <div class='col-2 col-md-2'>{$nombreusuario}</div>
-                                <div class='col-2 col-md-2'>{$fecha}</div>
-                                <div class='col-1 col-md-1'>{$telefonousuario}</div>
-                                <div class='col-3 col-md-3'>{$direccionusuario}</div>
-                                <div class='col-1 col-md-1'>S/{$total}</div>
-                                <div class='col-1 col-md-1'>";
+                                <div class='col-1 col-md-1 fs-6 p-1'>$pedidoAnterior</div>
+                                <div class='col-2 col-md-2 fs-6 p-1'>{$nombreusuario}</div>
+                                <div class='col-2 col-md-2 fs-6 p-1'>{$fecha}</div>
+                                <div class='col-1 col-md-1 fs-6 p-1'>{$telefonousuario}</div>
+                                <div class='col-3 col-md-3 fs-6 p-1'>{$direccionusuario}</div>
+                                <div class='col-1 col-md-1 fs-6 p-1'>S/{$total}</div>
+                                <div class='col-1 col-md-1 fs-6 p-1'>";
 
                                 // Mostrar el estado
                                 if ($estado == 1) {
@@ -127,7 +127,7 @@ if ($result->num_rows > 0) {
                                 }
 
                                 echo "</div>
-                                <div class='col-1 col-md-1 boton'><button class='boton'><i class='fa-solid fa-caret-down'></i></button></div>
+                                <div class='col-1 col-md-1 boton '><button class='boton '><i class='fa-solid fa-caret-down'></i></button></div>
                             </div>
                         </div>";
 
@@ -135,9 +135,9 @@ if ($result->num_rows > 0) {
                         if($estado == 1){
                             echo "<div class='estadopedido'>
                                     <div class='row'>
-                                        <div class='col-4 col-md-4'></div>
-                                        <div class='col-4 col-md-4'></div>
-                                        <div class='col-4 col-md-4'>
+                                        <div class='col-4 col-md-4 fs-6 p-1'></div>
+                                        <div class='col-4 col-md-4 fs-6 p-1'></div>
+                                        <div class='col-4 col-md-4 fs-6 p-1'>
                                             <form method='post'>
                                                 <input type='hidden' name='idpedido' value='{$idpedido}'>
                                                 <label><input type='checkbox' name='tienda_checkbox' class='custom-checkbox'> Marcar como Proceso de entrega</label>
@@ -149,9 +149,9 @@ if ($result->num_rows > 0) {
                         } elseif($estado == 2){
                             echo "<div class='estadopedido'>
                                     <div class='row'>
-                                        <div class='col-4 col-md-4'></div>
-                                        <div class='col-4 col-md-4'></div>
-                                        <div class='col-4 col-md-4'>
+                                        <div class='col-4 col-md-4 fs-6 p-1'></div>
+                                        <div class='col-4 col-md-4 fs-6 p-1'></div>
+                                        <div class='col-4 col-md-4 fs-6 p-1'>
                                             <form method='post'>
                                                 <input type='hidden' name='idpedido' value='{$idpedido}'>
                                                 <label><input type='checkbox' name='entregado_checkbox' class='custom-checkbox'> Marcar como Entregado</label>
@@ -164,24 +164,24 @@ if ($result->num_rows > 0) {
 
                         echo "<div class='desplegable'>
                             <div class='row'>
-                                <div class='col-7 col-md-7'>
+                                <div class='col-7 col-md-7 fs-6 p-1'>
                                     <div class='row productos'>
-                                        <div class='col-12 col-md-12 titulosd'>Productos</div>
+                                        <div class='col-12 col-md-12 titulosd fs-6 p-1'>Productos</div>
                                         $productos
                                     </div>
                                 </div>
-                                <div class='col-3 col-md-3'>
-                                    <div class='col-12 col-md-12 titulosd'>Precio Uni</div>
+                                <div class='col-3 col-md-3 fs-6 p-1'>
+                                    <div class='col-12 col-md-12 titulosd fs-6 p-1'>Precio Uni</div>
                                     $preciosDescuento
                                 </div>
-                                <div class='col-2 col-md-2'>
-                                    <div class='col-12 col-md-12 titulosd'>Cantidad</div>
+                                <div class='col-2 col-md-2 fs-6 p-1'>
+                                    <div class='col-12 col-md-12 titulosd fs-6 p-1'>Cantidad</div>
                                     $cantidades
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class='col-1 col-md-1 prueba'></div>
+                    <div class='col-1 col-md-1  fs-6 p-1 prueba'></div>
                 </div>";
 
                 // Reiniciamos las variables acumuladoras
@@ -200,9 +200,9 @@ if ($result->num_rows > 0) {
         }
 
         // Acumulamos los datos de los productos
-        $productos .= "<div class='col-12 col-md-12'>{$pedido['nombreproducto']}</div>";
-        $preciosDescuento .= "<div class='col-12 col-md-12'>S/. {$pedido['preciodescuento']}</div>";
-        $cantidades .= "<div class='col-12 col-md-12'>{$pedido['cantidad_producto']}</div>";
+        $productos .= "<div class='col-12 col-md-12 fs-6 p-1'>{$pedido['nombreproducto']}</div>";
+        $preciosDescuento .= "<div class='col-12 col-md-12 fs-6 p-1'>S/. {$pedido['preciodescuento']}</div>";
+        $cantidades .= "<div class='col-12 col-md-12 fs-6 p-1'>{$pedido['cantidad_producto']}</div>";
     }
 
     // Imprimimos el último pedido acumulado
@@ -212,13 +212,13 @@ if ($result->num_rows > 0) {
         <div class='col-10 col-md-10 prueba'>
             <div class='caja'>
                 <div class='row'>
-                    <div class='col-1 col-md-1'>$pedidoAnterior</div>
-                    <div class='col-2 col-md-2'>{$nombreusuario}</div>
-                    <div class='col-2 col-md-2'>{$fecha}</div>
-                    <div class='col-1 col-md-1'>{$telefonousuario}</div>
-                    <div class='col-3 col-md-3'>{$direccionusuario}</div>
-                    <div class='col-1 col-md-1'>S/{$total}</div>
-                    <div class='col-1 col-md-1'>";
+                    <div class='col-1 col-md-1 fs-6 p-1'>$pedidoAnterior</div>
+                    <div class='col-2 col-md-2 fs-6 p-1'>{$nombreusuario}</div>
+                    <div class='col-2 col-md-2 fs-6 p-1'>{$fecha}</div>
+                    <div class='col-1 col-md-1 fs-6 p-1'>{$telefonousuario}</div>
+                    <div class='col-3 col-md-3 fs-6 p-1'>{$direccionusuario}</div>
+                    <div class='col-1 col-md-1 fs-6 p-1'>S/{$total}</div>
+                    <div class='col-1 col-md-1 fs-6 p-1'>";
 
                     // Mostrar el estado
                     if ($estado == 1) {
@@ -237,24 +237,24 @@ if ($result->num_rows > 0) {
         // Mostrar los productos
         echo "<div class='desplegable'>
             <div class='row'>
-                <div class='col-7 col-md-7'>
+                <div class='col-7 col-md-7 fs-6 p-1'>
                     <div class='row productos'>
                         <div class='col-12 col-md-12 titulosd'>Productos</div>
                         $productos
                     </div>
                 </div>
-                <div class='col-3 col-md-3'>
+                <div class='col-3 col-md-3 fs-6 p-1'>
                     <div class='col-12 col-md-12 titulosd'>Precio Uni</div>
                     $preciosDescuento
                 </div>
-                <div class='col-2 col-md-2'>
+                <div class='col-2 col-md-2 fs-6 p-1'>
                     <div class='col-12 col-md-12 titulosd'>Cantidad</div>
                     $cantidades
                 </div>
             </div>
         </div>
     </div>
-    <div class='col-1 col-md-1 prueba'></div>
+    <div class='col-1 col-md-1 fs-6 p-1 prueba'></div>
 </div>";
 } else {
     echo "No se encontraron resultados para los filtros seleccionados.";
