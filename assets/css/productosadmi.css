@@ -1,161 +1,198 @@
 @import url('../css/common.css');
-.titulo-agregar{
-    margin-top: 20px;
-}
-.titulo-agregar h2{
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-.titulo-agregar .agregar{
-    background-color: rgb(0, 110, 255);
-    font-size: 1.5rem;
-    border-radius: 1rem;
-    color: white;
-    padding: 8px;
-}
-.filtros{
-    padding-left: 20px;
-    border: 1px solid var(--primary-color);
-    margin: 10px 0;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-    padding-top: 20px;
-}
-.tipo-filtro{
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-.form-control option{
-    font-size: 1.5rem;
-}
-.table{
-    font-size: 1.4rem;
-}
-/* Aplica solo a los th dentro de thead-light */
-.table .thead-light th {
-    vertical-align: middle;
-}
-.custom-button-size {
-    font-size: 1.3rem; /* Tamaño de fuente opcional */
-}
-.actualizarprecio{
-    margin-left: 5px;
-    background-color: #E0E0E0;
-    border: 1px solid #9d9f38;
-    color: #000;
-}
-.actualizarprecio:hover{
-    background-color: #c1c34a;
-    color: white;
-    border: 1px solid #9d9f38;
-}
-.actualizar{
-    background-color: #E0E0E0;
-    border: 1px solid #689F38;
-    color: #000;
-}
-.actualizar:hover{
-    background-color: #8BC34A;
-    color: white;
-    border: 1px solid #689F38;
-}
-.eliminar{
-    background-color: #E0E0E0;
-    border: 1px solid #9f3838;
-    color: #000;
-}
-.eliminar:hover{
-    background-color: #c34a4a;
-    color: white;
-    border: 1px solid #9f3838;;
+
+:root {
+    --primary-color: #c7a17a;
+    --danger-color: #9f3838;
+    --warning-color: #9d9f38;
+    --neutral-bg: #e0e0e0;
+    --neutral-hover: #ccc;
+    --text-color: #333;
+    --font-size: 1.4rem;
+    --border-radius: 10px;
 }
 
-/*MODAL*/
-/* Estilos para el Modal */
+/* TITULOS */
+.titulo-agregar {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.titulo-agregar h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.titulo-agregar .agregar {
+    background-color: var(--primary-color);
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    color: white;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.titulo-agregar .agregar:hover {
+    background-color: #876747;
+}
+
+/* FILTROS */
+.filtros {
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tipo-filtro {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* FORMULARIOS */
+.form-label {
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-control {
+    font-size: var(--font-size);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid #bbb;
+    background-color: white;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(163, 130, 96, 0.3);
+}
+
+/* TABLA */
+.table {
+    font-size: 1.3rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.table .thead-light th {
+    background-color: var(--primary-color);
+    color: white;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.table tbody tr:hover {
+    background-color: #f7f7f7;
+}
+
+/* BOTONES */
+.custom-button-size {
+    font-size: 1.3rem;
+    padding: 6px 14px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* EDITAR - Verde */
+.actualizar {
+    background-color: #8BC34A; /* Verde claro */
+    border: 1px solid #689F38; /* Verde oscuro */
+    color: white;
+}
+
+.actualizar:hover {
+    background-color: #689F38;
+}
+
+/* ELIMINAR - Rojo */
+.eliminar {
+    background-color: #f44336; /* Rojo */
+    border: 1px solid #b71c1c;
+    color: white;
+}
+
+.eliminar:hover {
+    background-color: #b71c1c;
+}
+
+/* QUITAR DESCUENTO - Amarillo */
+.actualizarprecio {
+    background-color: #FFEB3B; /* Amarillo */
+    border: 1px solid #FBC02D;
+    color: black;
+}
+
+.actualizarprecio:hover {
+    background-color: #FBC02D;
+    color: black;
+}
+
+/* MODAL */
 .modal-content {
-    background-color: var(--background-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .modal-header {
     background-color: var(--primary-color);
     color: white;
-    border-bottom: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
 }
 
 .modal-title {
     font-size: 2.2rem;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .btn-close {
     color: white;
 }
 
-.modal-body {
-    padding: 2rem;
-}
-
-.form-label {
-    color: var(--dark-color);
-    font-size: 1.4rem;
-    font-weight: 500;
-}
-
-.form-control {
-    font-size: 1.4rem;
-    padding: 0.75rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: #ffffff;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(199, 161, 122, 0.3);
-}
+/* BOTONES MODAL */
 .btn-primary,
 .btn-success {
     background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    border: none;
     color: white;
     font-size: 1.5rem;
-    font-weight: 500;
     padding: 0.8rem 1.5rem;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     transition: background-color 0.3s;
 }
-.btn-primary,
+
+.btn-primary:hover,
 .btn-success:hover {
-    background-color: #a38260;
-    border-color: #a38260;
+    background-color: #c7a17a;
 }
-.border-personalizar{
-     border: 2px solid #a38260
+
+/* ESTILOS PERSONALIZADOS */
+.border-personalizar {
+    border: 2px solid var(--primary-color);
 }
- .bg-personalizado {
-        background-color: #a38260 ;
-        color: white;
-    }
 
-    .text-personalizado {
-        color: #a38260 !important;
-    }
+.bg-personalizado {
+    background-color: var(--primary-color);
+    color: white;
+}
 
-    .table-personalizada thead {
-        background-color: #a38260 !important;
-        color: white;
-    }
+.text-personalizado {
+    color: var(--primary-color) !important;
+}
 
-    .table-personalizada tbody tr:hover {
-        background-color: #f0e6dd;
-    }
+.table-personalizada thead {
+    background-color: var(--primary-color) !important;
+    color: white;
+}
 
-    .fw-bold-green {
-        color: #28a745;
-        font-weight: bold;
-    }
+.table-personalizada tbody tr:hover
