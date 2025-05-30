@@ -195,4 +195,11 @@
     color: white;
 }
 
-.table-personalizada tbody tr:hover
+.table-personalizada tbody tr:hover {
+    background-color: #f0e6dd;
+}
+
+.fw-bold-green {
+    color: #28a745;
+    font-weight: bold;
+}
