@@ -1,0 +1,115 @@
+/* Fuente y estilos globales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f6f2;
+    color: #333;
+    padding-bottom: 50px;
+}
+
+/* Títulos */
+h2, h4 {
+    font-weight: 700;
+    color: #8B4513;
+}
+
+/* Tarjetas */
+.card {
+    border-radius: 12px;
+    background-color: #fff5e6;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Etiquetas de formularios */
+.form-label {
+    font-weight: 600;
+    color: #5a3d23;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+/* Tabla responsiva */
+.table-responsive {
+    border-radius: 12px;
+    overflow-x: auto;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabla */
+.table {
+    margin-bottom: 0;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 12px 8px;
+    min-width: 100px;
+    word-wrap: break-word;
+}
+
+/* Cabecera */
+.table thead th {
+    background-color: #8B4513;
+    color: white;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+/* Celdas */
+.table td {
+    background-color: #fffaf0;
+}
+
+/* Hover fila */
+.table-hover tbody tr:hover {
+    background-color: #f5e6cc;
+}
+
+/* Botones estilo chocolate */
+.btn-chocolate {
+    background-color: #d39d77;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-chocolate:hover {
+    background-color: #ca9a84;
+}
+
+/* Responsive mejorado para dispositivos pequeños */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+
+    .table th, .table td {
+        padding: 8px 5px;
+        min-width: 80px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+}
