@@ -1,0 +1,243 @@
+@import url('../css/common.css');
+
+/* CONTENIDO DE LA PÁGINA */
+main {
+    background-color: var(--background-color);
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.7rem;
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.card-date {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.card-text {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #777;
+}
+
+.btn-read-more {
+    padding: 1rem 3rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-read-more a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-read-more i {
+    margin-left: 20rem;
+}
+
+.btn-read-more:hover {
+    background-color: var(--dark-color);
+}
+
+.card-img-top {
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    max-height: 270px;
+    width: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+/* Espaciado adicional en pantallas pequeñas */
+@media (max-width: 768px) {
+    .col-md-4 {
+        margin-bottom: 20px;
+        /* Espaciado inferior entre las cartas en móviles */
+    }
+
+    .card {
+        margin-bottom: 20px;
+        /* Espaciado superior e inferior adicional */
+    }
+}
+
+/* FIN BLOGS */
+
+/* Carrito (Barra lateral) */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Escondido inicialmente */
+    height: 100%;
+    width: 370px; 
+    background-color: #beb8b4; 
+    z-index: 1000;
+    transition: 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cart-sidebar.open {
+    right: 0; /* Mostrar cuando esté abierto */
+}
+
+/* Estilos de la cabecera del carrito */
+.cart-header {
+    background-color: #101010;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
+
+.cart-header h1 {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+/* ícono x */
+button i {
+    font-size: 30px; 
+    color: #fff; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  /* Cambio de color */
+  button i:hover {
+    color: #b87777; 
+    transform: scale(1.1); 
+  }
+  
+  
+  button i:active {
+    color: #776262; 
+    transform: scale(1.3); /* Aumenta más el tamaño al hacer clic */
+  }
+  
+
+
+
+/* Estilos para los productos */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1.5px solid rgba(187, 176, 176, 0.281); 
+    padding-bottom: 2rem;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    flex-grow: 1.5;
+    margin-left: 15px;
+}
+
+.cart-item-name {
+    font-size: 1.5rem;
+    color: rgb(12, 12, 12);
+}
+
+.cart-item-price {
+    font-size: 1.5rem;
+    color: rgb(4, 4, 4);
+}
+
+.remove-item {
+    color: rgb(16, 15, 15);
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.remove-item:hover {
+    color: red;
+}
+
+/* Estilo cuando se abre el carrito, el resto de la pantalla se oscurece */
+body.cart-open {
+    overflow: hidden;
+}
+
+body.cart-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Botones del carrito */
+#view-cart, #checkout, #empty-cart {
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#view-cart {
+    background-color: #28a745;
+    color: white;
+}
+
+#checkout {
+    background-color: #007bff;
+    color: white;
+}
+
+#empty-cart {
+    background-color: #dc3545;
+    color: white;
+}
+
+#view-cart:hover, #checkout:hover, #empty-cart:hover {
+    opacity: 0.9;
+}
+
+/* Estilo responsivo */
+@media (min-width: 768px) {
+    .cart-sidebar {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cart-sidebar {
+        max-width: 100%;
+    }
+
+    .cart-header h1 {
+        font-size: 1.2rem;
+    }
+}
