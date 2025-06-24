@@ -148,3 +148,12 @@ session_start();
   </nav>
 
 </header>
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+</style>
