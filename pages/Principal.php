@@ -520,6 +520,9 @@ function mostrarOpcionesIniciales() {
 }
 
 function mostrarOpciones(opciones) {
+  // Limpia opciones anteriores
+  const prev = messages.querySelector('.chatbot-options');
+  if (prev) prev.remove();
   const ul = document.createElement('ul');
   ul.className = 'chatbot-options';
   opciones.forEach(op => {
@@ -553,17 +556,15 @@ function procesarOpcion(valor) {
     mostrarOpcionesIniciales();
     return;
   }
+  // Manejo universal para volver a productos
+  if (valor === 'volver_productos') {
+    mostrarProductos();
+    return;
+  }
 
   if (estado === 'inicio') {
     if (valor === 'productos') {
-      agregarMensaje('¿Sobre qué tipo de producto deseas información?');
-      mostrarOpciones([
-        { texto: '🥖 Panadería', valor: 'panaderia' },
-        { texto: '🍰 Pastelería', valor: 'pasteleria' },
-        { texto: '🥤 Bebidas', valor: 'bebidas' },
-        { texto: '🔙 Volver al menú principal', valor: 'volver' }
-      ]);
-      estado = 'productos';
+      mostrarProductos();
     } else if (valor === 'horarios') {
       agregarMensaje('Nuestro horario es de <b>Lunes a Sábado</b> de <b>8:00 a.m.</b> a <b>8:00 p.m.</b>');
       mostrarOpciones([
@@ -582,26 +583,26 @@ function procesarOpcion(valor) {
       mostrarContacto();
     }
   } else if (estado === 'productos') {
-    if (valor === 'panaderia') {
-      agregarMensaje('Ofrecemos pan francés, integral, ciabatta y más. ¿Deseas saber precios o ver promociones?');
+    if (valor === 'alimento') {
+      agregarMensaje('Ofrecemos Arroz Pacasmayo, Arroz Caserita Extra, Arroz Paisana, Huevos. ¿Deseas saber precios o ver promociones?');
       mostrarOpciones([
-        { texto: '💲 Ver precios', valor: 'precios_pan' },
-        { texto: '🎁 Ver promociones', valor: 'promo_pan' },
+        { texto: '💲 Ver precios', valor: 'precios_alimentos' },
+        { texto: '🎁 Ver promociones', valor: 'promo_alimentos' },
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' }
       ]);
-      estado = 'panaderia';
-    } else if (valor === 'pasteleria') {
-      agregarMensaje('Tenemos tortas, cupcakes, alfajores y más. ¿Qué te gustaría consultar?');
+      estado = 'alimento';
+    } else if (valor === 'lacteos') {
+      agregarMensaje('Tenemos leche Gloria, Pura Vida, Bonle, Yogurt y más. ¿Qué te gustaría consultar?');
       mostrarOpciones([
-        { texto: '🎂 Ver catálogo', valor: 'catalogo_pasteles' },
-        { texto: '🎁 Ver promociones', valor: 'promo_pasteles' },
+        { texto: '💲 Ver precios', valor: 'precio_lacteos' },
+        { texto: '🎁 Ver promociones', valor: 'promo_lacteos' },
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' }
       ]);
-      estado = 'pasteleria';
+      estado = 'lacteos';
     } else if (valor === 'bebidas') {
-      agregarMensaje('Contamos con jugos, gaseosas, café y más. ¿Qué deseas saber?');
+      agregarMensaje('Contamos con jugos, gaseosas y más. ¿Qué deseas saber?');
       mostrarOpciones([
         { texto: '🥤 Ver lista de bebidas', valor: 'lista_bebidas' },
         { texto: '🎁 Ver promociones', valor: 'promo_bebidas' },
@@ -609,62 +610,54 @@ function procesarOpcion(valor) {
         { texto: '🏠 Volver al menú principal', valor: 'volver' }
       ]);
       estado = 'bebidas';
-    } else if (valor === 'volver_productos') {
-      procesarOpcion('productos');
     }
-  } else if (estado === 'panaderia') {
-    if (valor === 'precios_pan') {
-      agregarMensaje('Pan francés: <b>S/0.50</b><br>Pan integral: <b>S/0.80</b><br>Ciabatta: <b>S/1.00</b>');
+  } else if (estado === 'alimento') {
+    if (valor === 'precios_alimentos') {
+      agregarMensaje('Arroz Pacasmayo: <b>S/3.52</b><br>Arroz Caserita Extra: <b>S/3.80</b><br>Arroz Paisana: <b>S/5.61</b><br>Huevos: <b>S/8.46</b>');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
-    } else if (valor === 'promo_pan') {
-      agregarMensaje('¡Promoción! 10 panes franceses por <b>S/4.00</b> solo hoy.');
+    } else if (valor === 'promo_alimentos') {
+      agregarMensaje('¡Promoción! 5 kilos de arroz Paisana por <b>S/5.00</b> solo hoy.');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
-    } else if (valor === 'volver_productos') {
-      procesarOpcion('productos');
     }
-  } else if (estado === 'pasteleria') {
-    if (valor === 'catalogo_pasteles') {
-      agregarMensaje('Tortas desde <b>S/25</b>, cupcakes desde <b>S/3</b>. ¡Pregunta por sabores disponibles!');
+  } else if (estado === 'lacteos') {
+    if (valor === 'precio_lacteos') {
+      agregarMensaje('Gloria <b>S/4.00</b>, Pura Vida <b>S/3</b>, Bonle <b>S/2.60</b>, Yogurt <b>S/7</b>. ¡Pregunta por sabores disponibles!');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
-    } else if (valor === 'promo_pasteles') {
-      agregarMensaje('¡Promo! 6 cupcakes por <b>S/15</b>. Solo esta semana.');
+    } else if (valor === 'promo_lacteos') {
+      agregarMensaje('¡Promo! 6 Yogurt por <b>S/39</b>. Solo esta semana.');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
-    } else if (valor === 'volver_productos') {
-      procesarOpcion('productos');
     }
   } else if (estado === 'bebidas') {
     if (valor === 'lista_bebidas') {
-      agregarMensaje('Jugos naturales, gaseosas, café, té y más. ¡Pregunta por tu bebida favorita!');
+      agregarMensaje('Pepsi, Inka Kola, Sprite, Fanta y más. ¡Pregunta por tu bebida favorita!');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
     } else if (valor === 'promo_bebidas') {
-      agregarMensaje('¡Promo! 2 jugos naturales por <b>S/5</b>. Solo hoy.');
+      agregarMensaje('¡Promo! 2 Sprite 500ml por <b>S/4</b>. Solo hoy.');
       mostrarOpciones([
         { texto: '🔙 Volver a productos', valor: 'volver_productos' },
         { texto: '🏠 Volver al menú principal', valor: 'volver' },
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
-    } else if (valor === 'volver_productos') {
-      procesarOpcion('productos');
     }
   } else if (['horarios', 'ubicacion'].includes(estado)) {
     if (valor === 'asesor') {
@@ -677,7 +670,18 @@ function procesarOpcion(valor) {
   }
 }
 
-// ACTUALIZADO: Contactar a un asesor abre Chatra automáticamente
+function mostrarProductos() {
+  agregarMensaje('¿Sobre qué tipo de producto deseas información?');
+  mostrarOpciones([
+    { texto: 'Alimentos', valor: 'alimento' },
+    { texto: 'Bebidas', valor: 'bebidas' },
+    { texto: 'Lácteos', valor: 'lacteos' },
+    { texto: '🔙 Volver al menú principal', valor: 'volver' }
+  ]);
+  estado = 'productos';
+}
+
+// Contactar a un asesor abre Chatra automáticamente
 function mostrarContacto() {
   agregarMensaje(
     `Te estamos conectando con un asesor en línea...<br>
@@ -718,6 +722,7 @@ function procesarMensajeLibre(msg) {
         s.src = 'https://call.chatra.io/chatra.js';
         if (d.head) d.head.appendChild(s);
     })(document, window, 'Chatra');
+</script>
 </script>
   <script src="/assets/js/benefits-modal.js"></script>
   <script src="/assets/js/blog-modal.js"></script>
