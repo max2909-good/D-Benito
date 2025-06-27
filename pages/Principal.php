@@ -520,7 +520,7 @@ function mostrarOpcionesIniciales() {
 }
 
 function mostrarOpciones(opciones) {
-  // Limpia opciones anteriores
+  
   const prev = messages.querySelector('.chatbot-options');
   if (prev) prev.remove();
   const ul = document.createElement('ul');
@@ -550,13 +550,12 @@ form.onsubmit = function(e) {
   input.value = '';
 };
 
-function procesarOpcion(valor) {
-  // Manejo universal para volver al menú principal
+function procesarOpcion(valor) {l
   if (valor === 'volver' || valor === 'volver_menu') {
     mostrarOpcionesIniciales();
     return;
   }
-  // Manejo universal para volver a productos
+  
   if (valor === 'volver_productos') {
     mostrarProductos();
     return;
@@ -681,7 +680,7 @@ function mostrarProductos() {
   estado = 'productos';
 }
 
-// Contactar a un asesor abre Chatra automáticamente
+
 function mostrarContacto() {
   agregarMensaje(
     `Te estamos conectando con un asesor en línea...<br>
@@ -694,14 +693,13 @@ function mostrarContacto() {
   ]);
   estado = 'contacto';
 
-  // Abre Chatra automáticamente si está disponible
+ 
   if (window.Chatra) {
     window.Chatra('openChat', true);
   }
 }
 
 function procesarMensajeLibre(msg) {
-  // Si el usuario escribe libremente, lo guiamos al menú o asesor
   if (estado === 'contacto') {
     mostrarOpcionesIniciales();
   } else {
@@ -710,7 +708,6 @@ function procesarMensajeLibre(msg) {
 }
 </script>
 
-<!-- Script de Chatra: pon tu ChatraID real -->
 <script>
     (function(d, w, c) {
         w.ChatraID = 'dSePuJ9dithyd72SP';
