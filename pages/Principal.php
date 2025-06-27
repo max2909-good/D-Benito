@@ -461,6 +461,8 @@
   color: #fff;
 }
 </style>
+<!-- Botón y ventana del Chatbot D'Benito -->
+
 
 <div id="chatbot-container">
   <button id="openChatbot" title="¿Necesitas ayuda?">
@@ -520,7 +522,6 @@ function mostrarOpcionesIniciales() {
 }
 
 function mostrarOpciones(opciones) {
-  
   const prev = messages.querySelector('.chatbot-options');
   if (prev) prev.remove();
   const ul = document.createElement('ul');
@@ -550,17 +551,19 @@ form.onsubmit = function(e) {
   input.value = '';
 };
 
-function procesarOpcion(valor) {l
+function procesarOpcion(valor) {
+  // Volver al menú principal desde cualquier estado
   if (valor === 'volver' || valor === 'volver_menu') {
     mostrarOpcionesIniciales();
     return;
   }
-  
+  // Volver a productos desde cualquier estado
   if (valor === 'volver_productos') {
     mostrarProductos();
     return;
   }
 
+  // Menú principal
   if (estado === 'inicio') {
     if (valor === 'productos') {
       mostrarProductos();
@@ -581,7 +584,9 @@ function procesarOpcion(valor) {l
     } else if (valor === 'asesor') {
       mostrarContacto();
     }
-  } else if (estado === 'productos') {
+  }
+  // Submenú productos
+  else if (estado === 'productos') {
     if (valor === 'alimento') {
       agregarMensaje('Ofrecemos Arroz Pacasmayo, Arroz Caserita Extra, Arroz Paisana, Huevos. ¿Deseas saber precios o ver promociones?');
       mostrarOpciones([
@@ -610,7 +615,9 @@ function procesarOpcion(valor) {l
       ]);
       estado = 'bebidas';
     }
-  } else if (estado === 'alimento') {
+  }
+  // Submenú alimentos
+  else if (estado === 'alimento') {
     if (valor === 'precios_alimentos') {
       agregarMensaje('Arroz Pacasmayo: <b>S/3.52</b><br>Arroz Caserita Extra: <b>S/3.80</b><br>Arroz Paisana: <b>S/5.61</b><br>Huevos: <b>S/8.46</b>');
       mostrarOpciones([
@@ -626,7 +633,9 @@ function procesarOpcion(valor) {l
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
     }
-  } else if (estado === 'lacteos') {
+  }
+  // Submenú lácteos
+  else if (estado === 'lacteos') {
     if (valor === 'precio_lacteos') {
       agregarMensaje('Gloria <b>S/4.00</b>, Pura Vida <b>S/3</b>, Bonle <b>S/2.60</b>, Yogurt <b>S/7</b>. ¡Pregunta por sabores disponibles!');
       mostrarOpciones([
@@ -642,7 +651,9 @@ function procesarOpcion(valor) {l
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
     }
-  } else if (estado === 'bebidas') {
+  }
+  // Submenú bebidas
+  else if (estado === 'bebidas') {
     if (valor === 'lista_bebidas') {
       agregarMensaje('Pepsi, Inka Kola, Sprite, Fanta y más. ¡Pregunta por tu bebida favorita!');
       mostrarOpciones([
@@ -658,11 +669,15 @@ function procesarOpcion(valor) {l
         { texto: '💬 Contactar a un asesor', valor: 'asesor' }
       ]);
     }
-  } else if (['horarios', 'ubicacion'].includes(estado)) {
+  }
+  // Desde horarios o ubicación
+  else if (['horarios', 'ubicacion'].includes(estado)) {
     if (valor === 'asesor') {
       mostrarContacto();
     }
-  } else if (estado === 'contacto') {
+  }
+  // Desde contacto
+  else if (estado === 'contacto') {
     if (valor === 'volver_menu') {
       mostrarOpcionesIniciales();
     }
@@ -680,7 +695,6 @@ function mostrarProductos() {
   estado = 'productos';
 }
 
-
 function mostrarContacto() {
   agregarMensaje(
     `Te estamos conectando con un asesor en línea...<br>
@@ -693,7 +707,6 @@ function mostrarContacto() {
   ]);
   estado = 'contacto';
 
- 
   if (window.Chatra) {
     window.Chatra('openChat', true);
   }
