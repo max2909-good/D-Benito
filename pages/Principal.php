@@ -723,7 +723,7 @@ function procesarMensajeLibre(msg) {
 
 <script>
     (function(d, w, c) {
-        w.ChatraID = 'o5n4Pk9p4J9XhAWwD';
+        w.ChatraID = 'bqbuk7YYcNvkTRoy6';
         var s = d.createElement('script');
         w[c] = w[c] || function() {
             (w[c].q = w[c].q || []).push(arguments);
